@@ -9,22 +9,20 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent implements OnInit {
 
   registerClicked = false;
-  values: any;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    this.getValues();
   }
 
-  registerToggle(){
-    this.registerClicked = !this.registerClicked;
+  registerToggle()
+  {
+    this.registerClicked = true;
   }
 
-  getValues(){
-    this.http.get('http://localhost:5000/api/values').subscribe(response => {
-      this.values = response;
-    }, err => console.log(err));
-  }
 
+  cancelRegisterToggle(registerToggle: boolean)
+  {
+    this.registerClicked = registerToggle;
+  }
 }

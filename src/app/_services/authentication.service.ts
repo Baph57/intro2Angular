@@ -17,11 +17,16 @@ login(model: any)
     map((response: any) => {
       const user = response; //will be JWT response
       if( user ) {
-        localStorage.setItem('token', user.token)
+        localStorage.setItem('token', user.token);
       }
     }
     )
   )
+}
+
+register(model: any)
+{
+  return this.http.post(this.baseURL + 'register', model)
 }
 
 }

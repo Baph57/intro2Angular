@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthenticationService } from '../_services/authentication.service';
+import { tokenName } from '@angular/compiler';
 
 @Component({
   selector: 'app-navBar',
@@ -28,4 +29,15 @@ export class NavBarComponent implements OnInit {
     ) 
   }
 
+  loggedin()
+  {
+    const jwtoken = localStorage.getItem('token');
+    return !!jwtoken;
+  }
+
+  logout()
+  {
+    localStorage.removeItem('token');
+    console.log('logged out!');
+  }
 }

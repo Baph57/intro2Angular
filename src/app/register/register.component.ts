@@ -7,7 +7,7 @@ import { AuthenticationService } from '../_services/authentication.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  
+
   @Output() cancelRegistration = new EventEmitter();
   model: any = {};
 
@@ -16,9 +16,8 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-  register()
-  {
-    this.authService.register(this.model).subscribe(()=>{
+  register() {
+    this.authService.register(this.model).subscribe(() => {
       console.log(this.model);
     }, error => {
       console.error(error);
@@ -26,8 +25,7 @@ export class RegisterComponent implements OnInit {
     );
   }
 
-  cancel()
-  {
+  cancel() {
     this.cancelRegistration.emit(false);
     console.log('cancelled');
   }

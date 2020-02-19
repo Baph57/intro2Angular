@@ -16,27 +16,24 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  login()
-  {
-    //observables must be subscribed to
+  login() {
+    // observables must be subscribed to
     this.authenticationService.login(this.model).subscribe(
-    next => {
-      console.log("logged in successfully")
-    },
-    error => {
-      console.log(error)
-    }
-    ) 
+      next => {
+        console.log('logged in successfully');
+      },
+      error => {
+        console.log(error);
+      }
+    )
   }
 
-  loggedin()
-  {
+  loggedin() {
     const jwtoken = localStorage.getItem('token');
     return !!jwtoken;
   }
 
-  logout()
-  {
+  logout() {
     localStorage.removeItem('token');
     console.log('logged out!');
   }
